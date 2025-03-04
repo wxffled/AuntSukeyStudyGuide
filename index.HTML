@@ -3,67 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DuckDuckGo Proxy</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            background-color: #006e6d;
-            padding: 20px;
-            color: white;
-            text-align: center;
-        }
-        .search-container {
-            margin: 50px auto;
-            text-align: center;
-        }
-        input[type="text"] {
-            padding: 10px;
-            width: 70%;
-            font-size: 16px;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #006e6d;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        iframe {
-            display: block;
-            width: 100%;
-            height: 80vh;
-            border: none;
-        }
-    </style>
+    <title>Study Facts - SukeyStudy</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <header>
-        <h1>DuckDuckGo Proxy Search</h1>
+        <div class="logo">
+            <h1>Welcome to SukeyStudy</h1>
+            <p>Your ultimate source for study facts and tips!</p>
+        </div>
     </header>
 
-    <div class="search-container">
-        <input type="text" id="search-query" placeholder="Search DuckDuckGo..." />
-        <button onclick="search()">Search</button>
-    </div>
+    <main>
+        <section class="fact-section">
+            <h2>Did You Know?</h2>
+            <div class="facts-container">
+                <div class="fact-card">
+                    <h3>Fact 1</h3>
+                    <p>Studies show that taking short breaks during study sessions helps improve retention.</p>
+                </div>
+                <div class="fact-card">
+                    <h3>Fact 2</h3>
+                    <p>The Pomodoro Technique is a time management method that boosts productivity in study.</p>
+                </div>
+                <div class="fact-card">
+                    <h3>Fact 3</h3>
+                    <p>Listening to classical music while studying can enhance memory and concentration.</p>
+                </div>
+                <div class="fact-card">
+                    <h3>Fact 4</h3>
+                    <p>Writing notes by hand helps improve long-term memory retention compared to typing.</p>
+                </div>
+            </div>
+        </section>
 
-    <iframe id="search-results" src="" style="display:none;"></iframe>
+        <!-- DABI Close Feature -->
+        <section class="dabi-section">
+            <h2>Want to close this page and go to your study tool?</h2>
+            <p>Type the word <strong>DABI</strong> below and click the button to proceed:</p>
+            <input type="text" id="dabiInput" placeholder="Type DABI here...">
+            <button onclick="checkDabiInput()">Go to Study Tool</button>
+        </section>
 
-    <script>
-        function search() {
-            const query = document.getElementById('search-query').value;
-            const proxyUrl = "https://SukeyStudy.site"; // Replace with your proxy URL
-            const searchUrl = `${proxyUrl}/?q=${encodeURIComponent(query)}`;
+        <section class="footer">
+            <p>Want more study tips? Keep browsing our website for more insights!</p>
+        </section>
+    </main>
 
-            const iframe = document.getElementById('search-results');
-            iframe.style.display = 'block';
-            iframe.src = searchUrl;
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
+

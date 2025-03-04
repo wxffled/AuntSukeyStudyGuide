@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Study Facts - SukeyStudy</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Hide the close section initially */
+        .dabi-section {
+            display: none;
+        }
+        
+        /* Show the section when hovering over the header or any desired element */
+        header:hover + main .dabi-section {
+            display: block;
+        }
+    </style>
 </head>
 <body>
 
@@ -51,7 +62,18 @@
         </section>
     </main>
 
-    <script src="script.js"></script>
+    <script>
+        function checkDabiInput() {
+            const dabiInput = document.getElementById('dabiInput').value.trim();
+            if (dabiInput.toUpperCase() === 'DABI') {
+                window.location.href = 'https://www.example.com/study-tool'; // Replace with actual study tool URL
+            } else {
+                alert('Incorrect input! Please type "DABI" to proceed.');
+            }
+        }
+    </script>
+
 </body>
 </html>
+
 

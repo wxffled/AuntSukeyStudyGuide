@@ -1,34 +1,17 @@
-const express = require('express');
-const axios = require('axios');
-const cors = require('cors');
+// script.js
 
-const app = express();
-const PORT = process.env.PORT || 3000;
+function checkDabiInput() {
+    const input = document.getElementById('dabiInput').value.trim();
 
-// Enable CORS (optional, you can remove this if you don't need it)
-app.use(cors());
+    // Check if the user typed "DABI"
+    if (input.toUpperCase() === 'DABI') {
+        // Show confirmation message (optional)
+        alert("Redirecting to your study tool...");
 
-// Route that will proxy DuckDuckGo search
-app.get('/', async (req, res) => {
-    const query = req.query.q;  // Grab the search query parameter
-    
-    if (!query) {
-        return res.status(400).send('Query parameter "q" is required');
+        // Redirect after button click
+        window.location.href = "https://www.sukeystudy.site/proxy"; // Replace with your actual proxy URL
+    } else {
+        // Do nothing if "DABI" is incorrect (no feedback)
+        console.log("Incorrect input (but do nothing).");
     }
-
-    try {
-        // Use Axios to fetch results from DuckDuckGo (HTML search page)
-        const response = await axios.get(`https://duckduckgo.com/html/?q=${encodeURIComponent(query)}`);
-        
-        // Send the HTML response back to the client
-        res.send(response.data);
-    } catch (error) {
-        console.error('Error fetching DuckDuckGo results:', error);
-        res.status(500).send('Error fetching DuckDuckGo results');
-    }
-});
-
-// Start the server
-app.listen(PORT, () => {
-    console.log(`Proxy server is running on http://localhost:${PORT}`);
-});
+}
